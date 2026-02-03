@@ -9,3 +9,43 @@ generator client {
 datasource db {
   provider = "sqlite"
 }
+
+model User {
+  id         Int          @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  email      String
+  role       Role
+  attendance Attendance[]
+}
+
+//An event object in the database should have relevant attributes such as title, date, time, location, external links, etc. We may need to add other fields later on but for now we can leave it with these.
+model Event {
+  id         Int          @id @default(autoincrement())
+  name       String
+  dateTime   DateTime
+  location   String
+  mainURL    String
+  price      Decimal
+  status     Status
+  attendance Attendance[]
+}
+
+model Attendance {
+  id      Int   @id @default(autoincrement())
+  event   Event @relation(fields: [eventId], references: [id])
+  eventId Int
+  user    User  @relation(fields: [userId], references: [id])
+  userId  Int
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Status {
+  CANCELLED
+  ADJOURNED
+  ACTIVE
+}
