@@ -64,3 +64,6 @@ src/generated
 
 # compiled app
 dist
+
+# local dev db
+dev.db
