@@ -9,6 +9,8 @@ declare module "fastify" {
   }
 }
 
+// Prisma Plugin that makes prisma instance available anywhere across backend
+
 const prismaPlugin: FastifyPluginAsync = fp(async (server, options) => {
   const connectionString = `${process.env.DATABASE_URL}`;
   const adapter = new PrismaBetterSqlite3({ url: connectionString });
@@ -16,6 +18,7 @@ const prismaPlugin: FastifyPluginAsync = fp(async (server, options) => {
 
   await prisma.$connect();
 
+  // allows access to prisma instance through fastify.prisma
   server.decorate("prisma", prisma);
 
   server.addHook("onClose", async (server) => {

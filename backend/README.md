@@ -14,10 +14,16 @@ This backend is built with Fastify. Please visit the [docs](https://fastify.dev/
 
 3. Run `npm run dev` to start the server.
 
-4. (Optional) As a sanity check, visit [localhost:3000/example-data](www.localhost:3000/example-data) to view the sample data returned from your db. You should see about 10 entries.
+4. (Optional) As a sanity check, visit [localhost:3000/example-data](http://localhost:3000/example-data) to view the sample data returned from your db. You should see about 10 entries.
 
 ## Dev DB Setup Information
 
 **SQLite** is used to create the dev DB. SQLite was selected for its minimal setup and its local storage of DB entries.
 
 **Prisma** is used as an ORM to interact with the DB. Prisma was chosen for its wide popularity in the JS ecosystem and its high abstraction.
+
+## Known Limitations
+
+1. When executing `npm run dev`, the server starts and restarts again, all in quick succession. This doesn't seem to alter functionality, and it has minimal effect on DX.
+
+2. The `tests` folder is not updated to reflect the new routes.
