@@ -60,6 +60,10 @@ profile*
 # generated code
 examples/typescript-server.js
 test/types/index.js
+src/generated
 
 # compiled app
 dist
+
+# local dev db
+dev.db
