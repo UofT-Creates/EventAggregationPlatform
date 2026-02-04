@@ -218,8 +218,7 @@ async function main() {
       for (const attendance of eventsAttending) {
         console.log(`EventId: ${attendance.eventId}`);
       }
-    }
-    {
+    } else {
       console.log("They are not signed up for any events.");
     }
   }
