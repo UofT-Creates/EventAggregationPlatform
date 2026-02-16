@@ -13,7 +13,9 @@
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/src/app.js"
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/src/app.js",
+    "lint": "eslint src",
+    "format": "prettier --write src"
   },
   "keywords": [],
   "author": "",
@@ -29,14 +31,19 @@
     "fastify-plugin": "^5.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^24.10.9",
     "c8": "^10.1.2",
     "concurrently": "^9.0.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "fastify-tsconfig": "^3.0.0",
+    "prettier": "^3.8.1",
     "prisma": "^7.3.0",
     "ts-node": "^10.4.0",
     "tsx": "^4.21.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.55.0"
   }
 }
